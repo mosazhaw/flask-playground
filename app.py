@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask.helpers import send_file
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/', static_folder='web')
 
 @app.route("/")
 def indexPage():
-    return send_file("frontend/index.html")  
+     return send_file("web/index.html")  
 
 from markupsafe import escape
 @app.route('/user/<username>')
@@ -22,3 +22,15 @@ def show_post(post_id):
 def show_subpath(subpath):
     # show the subpath after /path/
     return f'Subpath {escape(subpath)}'
+
+@app.route("/sum")
+def sum_even():
+    # flask parameters with type and default
+    n = request.args.get('n', default=1, type=int)
+    # logic
+    result = sum([x for x in range(n+1) if x % 2 == 0])
+    # return result as json
+    return jsonify(sum=result)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
