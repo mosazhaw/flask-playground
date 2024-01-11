@@ -31,6 +31,3 @@ def sum_even():
     result = sum([x for x in range(n+1) if x % 2 == 0])
     # return result as json
     return jsonify(sum=result)
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
