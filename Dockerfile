@@ -2,7 +2,7 @@
 # docker build -t mosazhaw/flask-playground .
 # docker run -p 9001:5000 -d mosazhaw/flask-playground
 
-FROM python:3.12.1
+FROM python:3.13.0
 
 # Copy Files
 WORKDIR /usr/src/app
