@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Flask",
+            "name": "Python Debugger: Flask",
             "type": "debugpy",
             "request": "launch",
             "module": "flask",
@@ -15,9 +15,11 @@
             },
             "args": [
                 "run",
+                "--no-debugger",
+                "--no-reload"
             ],
             "jinja": true,
-            "justMyCode": true
+            "autoStartBrowser": false
         }
     ]
 }
